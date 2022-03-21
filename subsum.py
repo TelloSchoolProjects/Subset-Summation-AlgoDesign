@@ -18,15 +18,12 @@ def SubsetSummation(inputs: list[int], target: int):
 ##########################################################################
 
 def GenerateCandidate(inputs: list[int]):
-    """Generator Function yielding each subset of inputs list"""
-    inInts = []
-    for elem in inputs:
-       inInts.append(elem)        
-    for i in range(2 ** len(inInts)):
+    """Generator Function yielding each subset of inputs list""" 
+    for i in range(2 ** len(inputs)):
         S = []
-        for j in range(len(inInts)):
+        for j in range(len(inputs)):
             if ((i >> j) & 1) == 1:
-                S.append(inInts[j])
+                S.append(inputs[j])
         yield S
 ##########################################################################
 
